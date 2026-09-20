@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untukmu 🤎</title>
+    <style>
+        /* TEMA COKELAT ESTETIK (EARTH TONES) */
+        :root {
+            --brown-bg: #f5ece3; 
+            --brown-primary: #8d6e63; 
+            --brown-light: #d7ccc8;
+            --brown-text: #4e342e;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: var(--brown-bg);
+            color: var(--brown-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(141, 110, 99, 0.15);
+            max-width: 400px;
+            width: 90%;
+            transition: all 0.5s ease-in-out;
+        }
+
+        /* Bagian Input Tanggal */
+        #login-section h1 {
+            font-size: 22px;
+            color: var(--brown-primary);
+            margin-bottom: 20px;
+        }
+
+        input[type="date"] {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid var(--brown-light);
+            border-radius: 8px;
+            font-size: 16px;
+            color: var(--brown-text);
+            outline: none;
+            background-color: #faf7f5;
+            margin-bottom: 20px;
+            font-family: inherit;
+        }
+
+        input[type="date"]:focus {
+            border-color: var(--brown-primary);
+        }
+
+        button {
+            background-color: var(--brown-primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            width: 85%;
+        }
+
+        button:hover {
+            background-color: #6d4c41;
+        }
+
+        /* Bagian Ucapan (Disembunyikan di awal) */
+        #greeting-section {
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        #greeting-section h1 {
+            color: var(--brown-primary);
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        #greeting-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--brown-text);
+        }
+
+        .flower {
+            font-size: 40px;
+            margin-top: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-container">
+        
+        <!-- HALAMAN 1: INPUT TANGGAL -->
+        <div id="login-section">
+            <h1>HALOOO DINDA, HAPPY BIRTHDAY</h1>
+            <p style="font-size: 14px; color: #8a7973; margin-bottom: 20px;">
+                DINNNN BUKAK PAKEK TANGGAL LAHIR YA.
+            </p>
+            <input type="date" id="dateInput">
+            <br>
+            <button onclick="checkDate()">Buka Pesan 💌</button>
+        </div>
+
+        <!-- HALAMAN 2: UCAPAN -->
+        <div id="greeting-section">
+            <h1>Selamat Ulang Tahun! 🎉</h1>
+            <p>
+               Haii dinn, karna kartu ucapan nya tertinggal, jadi lewat sini aja yaa, selamat ulang tahun nya, terima kasih
+               sudah melewati 20 tahun ini dengan sangat baik, aku tau banyak hal yang harus diselesaikan, bangga bangett.
+               dikepala 2 ini, pasti banyak doa yang dipanjatkan, semoga terkabul semua doa nya yaaaaa
+               Maaf kadonya selalu kecil, filosofinya karna suka lihattt pakek daster, jadi kepikiran nya kesituu, terim kasih yaa dinnnnn
+               sudah mau menjadi teman besttttttt bgt dalam segala hal, DITUNGGU UNDANGAN NYA!!!!!!!
+               dari : Aini 
+            </p>
+            <div class="flower">🌻🤎✨</div>
+        </div>
+
+    </div>
+
+    <script>
+        function checkDate() {
+            const inputDate = document.getElementById('dateInput').value;
+            
+            // UBAH TANGGAL DI BAWAH INI SESUAI TARGET (Format: TAHUN-BULAN-TANGGAL)
+            const correctDate = "2006-09-19"; 
+
+            if (inputDate === correctDate) {
+                // Sembunyikan halaman input, tampilkan halaman ucapan
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('greeting-section').style.display = 'block';
+            } else if (inputDate === "") {
+                alert("Pilih tanggalnya dulu ya!");
+            } else {
+                alert("Hmm, sepertinya itu bukan tanggal yang tepat. Coba lagi!");
+            }
+        }
+    </script>
+</body>
+</html>
